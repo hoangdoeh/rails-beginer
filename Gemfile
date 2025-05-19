@@ -72,3 +72,4 @@ end
 gem "bcrypt"
 gem "active_model_serializers"
 gem "sidekiq"
+gem "rack-cors"

@@ -6,7 +6,7 @@ class Api::V1::TodosController < ApplicationController
   protect_from_forgery with: :null_session
 
   def index
-    todo = Rails.cache.fetch("apiv1todos", expires_in: 12.hours) do
+    todo = Rails.cache.fetch("apiv1todo", expires_in: 12.seconds) do
       Rails.logger.info "CACHE MISS - querying DB"
       Todo.all.to_a
     end
@@ -30,7 +30,9 @@ class Api::V1::TodosController < ApplicationController
   end
 
   def update
-    if @todo.update(todo_params)
+    params = todo_params
+    params[:user_id] = @user.id
+    if @todo.update(params)
       render json: @todo
     else
       render json: { errors: @todo.errors.full_messages }, status: :unprocessable_entity
