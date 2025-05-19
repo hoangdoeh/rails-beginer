@@ -52,7 +52,7 @@ class JwtAuthMiddleware
     [
       401,
       { "Content-Type" => "application/json" },
-      [{ error: message }.to_json]
+      [ { error: message }.to_json ]
     ]
   end
 end

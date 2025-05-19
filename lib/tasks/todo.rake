@@ -5,5 +5,4 @@ namespace :todo do
     creator = TodoCreator.new(name, Date.tomorrow, 1)
     creator.handle
   end
-
 end

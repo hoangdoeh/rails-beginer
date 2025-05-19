@@ -1,7 +1,7 @@
 # app/controllers/api/v1/todos_controller.rb
 
 class Api::V1::TodosController < ApplicationController
-  before_action :set_todo, only: [:show, :update, :destroy]
+  before_action :set_todo, only: [ :show, :update, :destroy ]
   before_action :set_user
   protect_from_forgery with: :null_session
 

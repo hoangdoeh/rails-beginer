@@ -9,7 +9,7 @@ class Api::V1::Public::LoginController < ApplicationController
       token = JsonWebToken.encode(sub: user.id)
       render json: { token: token }, status: :ok
     else
-      render json: { error: 'Unauthorized' }, status: :unauthorized
+      render json: { error: "Unauthorized" }, status: :unauthorized
     end
   end
 end
