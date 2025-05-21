@@ -11,7 +11,7 @@ module TodoService
 
     def call
       todo = Todo.new(deadline: @deadline, name: @name, status: 0, user_id: @user_id)
-      todo.save!
+      todo.save
       TodoJobs::NotifyWhenCreateTodo.perform_later(todo.id)
       @data = todo
     end
